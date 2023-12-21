@@ -24,16 +24,13 @@ export const initPalettesIfEmpty = () => {
 }
 
 export const removeFavoritePokemon= (pokemonName) => {
-  const newFavorite = getPalettes().filter(pokemon => pokemon.name !== pokemonName);
-  setPalettes(newFavorite);
+  const newFavorites = getPalettes().filter(pokemon => pokemon.name !== pokemonName);
+  setPalettes(newFavorites);
 }
 
 export const addFavoritePokemon = ({ uuid, title, colors, temperature }) => {
-  const newPalette =  {
-    uuid,
-    title,
-    colors,
-    temperature,
+  const newFavorite =  {
+   
   };
-  setPokemon([newPalette, ...getPokemon() ]);
+  setPokemon([newFavorite, ...getPokemon() ]);
 }
