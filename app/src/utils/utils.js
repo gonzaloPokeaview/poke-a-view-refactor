@@ -1,5 +1,6 @@
 export const getElement = (el) => document.querySelector(el);
 
+
 export const fetchData = async (url) => {
     try {
         const response = await fetch(url);
@@ -14,10 +15,13 @@ export const fetchData = async (url) => {
     }
 };
 
-export const fetchAllPokemon = async (url) => {
-  console.log(await fetchData(url));
+export const fetchAllPokemon = async () => {
+  return await fetchData('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
 }
 
+export const fetchOnePokemon = async (url) => {
+  return await fetchData(url);
+}
 export const css = (element, style) => {
   for (const property in style)
       element.style[property] = style[property];

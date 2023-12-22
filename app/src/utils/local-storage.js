@@ -1,4 +1,6 @@
-const PALETTE = 'palettes';
+import { fetchAllPokemon } from "./utils";
+
+const ALL_POKEMON = 'allPokemon';
 
 const setLocalStorageKey = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
@@ -13,14 +15,15 @@ const getLocalStorageKey = (key) => {
   }
 }
 
-export const getPokemon = () => getLocalStorageKey(PALETTE) || [];
+export const getPokemon = () => getLocalStorageKey(ALL_POKEMON) || [];
 
-export const setPokemon= (palette) => {
-  setLocalStorageKey(PALETTE, palette);
+export const setPokemon= (poke) => {
+  setLocalStorageKey(ALL_POKEMON, poke);
 }
 
-export const initPalettesIfEmpty = () => {
-  if (!getPalettes().length) setLocalStorageKey(PALETTE, paletteData);
+export const initPokemonIfEmpty = async () => {
+  if (!getPokemon().length) setLocalStorageKey(ALL_POKEMON, await fetchAllPokemon());
+  console.log(localStorage);
 }
 
 export const removeFavoritePokemon= (pokemonName) => {

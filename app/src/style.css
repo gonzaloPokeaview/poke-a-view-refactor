@@ -68,7 +68,7 @@ header {
 .gameText {
   flex: 1;
   flex-basis: calc(5% - 1em); /* Set the maximum width of each item */
-  margin: 1em; /* Add spacing between items */
+  margin: .5em; /* Add spacing between items */
   
 }
 

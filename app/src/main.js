@@ -1,17 +1,11 @@
 import './style.css'
-import { css, capitalizeFirstLetter, removeFromArray, getElement, fetchAllPokemon } from './utils/utils.js';
-import { LOAD_MAIN, makeEachPokemon, makeModal } from './utils/render.js';
-
-const handleMoreInfo = (e) => {
-  e.preventDefault();
-  makeModal();
-}
+import { LOAD_MAIN } from './utils/render.js';
+import { getPokemon, initPokemonIfEmpty } from './utils/local-storage.js';
 
 const main = () => {
-  fetchAllPokemon('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
+  initPokemonIfEmpty();
   LOAD_MAIN();
-  makeEachPokemon();
-  getElement('input').addEventListener('click', handleMoreInfo);
+  console.log(getPokemon());
 };
 
 main();
